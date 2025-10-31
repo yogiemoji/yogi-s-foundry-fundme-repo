@@ -19,3 +19,6 @@ lib/
 
 .DS_store 
 zkout/
+
+.claude
+CLAUDE.md
