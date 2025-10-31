@@ -42,9 +42,6 @@ contract InteractionsTest is Test {
             1e12 // allow 1e12 wei margin
         );
         // Owner's balance should have increased by the contract balance
-        assertEq(
-            startingFundMeBalance + preOwnerBalance,
-            afterOwnerBalance
-        );
+        assertEq(startingFundMeBalance + preOwnerBalance, afterOwnerBalance);
     }
 }

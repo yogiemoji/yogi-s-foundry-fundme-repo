@@ -50,11 +50,7 @@ contract FundMeTest is Test {
         uint256 actualVersion = AggregatorV3Interface(priceFeed).version();
         // Compare it with FundMe’s stored version
         uint256 fundMeVersion = fundMe.getVersion();
-        assertEq(
-            fundMeVersion,
-            actualVersion,
-            "Version mismatch between FundMe and Chainlink feed"
-        );
+        assertEq(fundMeVersion, actualVersion, "Version mismatch between FundMe and Chainlink feed");
     }
 
     function testFundFailsWIthoutEnoughETH() public {
@@ -106,10 +102,7 @@ contract FundMeTest is Test {
         uint256 endingFundMeBalance = address(fundMe).balance;
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
         assertEq(endingFundMeBalance, 0);
-        assertEq(
-            startingFundMeBalance + startingOwnerBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingFundMeBalance + startingOwnerBalance, endingOwnerBalance);
     }
 
     function testWithdrawFromMultipleFunders() public funded {
@@ -117,11 +110,7 @@ contract FundMeTest is Test {
         uint160 numberOfFunders = 10;
         uint160 startingFunderIndex = 1;
         uint256 totalFunded = SEND_VALUE; // Alice already funded via `funded` modifier
-        for (
-            uint160 i = startingFunderIndex;
-            i < numberOfFunders + startingFunderIndex;
-            i++
-        ) {
+        for (uint160 i = startingFunderIndex; i < numberOfFunders + startingFunderIndex; i++) {
             // we get hoax from stdcheats
             // prank + deal
             hoax(address(i), SEND_VALUE);
@@ -158,11 +147,7 @@ contract FundMeTest is Test {
         uint160 numberOfFunders = 10;
         uint160 startingFunderIndex = 1;
         uint256 totalFunded = SEND_VALUE; // Alice already funded
-        for (
-            uint160 i = startingFunderIndex;
-            i < numberOfFunders + startingFunderIndex;
-            i++
-        ) {
+        for (uint160 i = startingFunderIndex; i < numberOfFunders + startingFunderIndex; i++) {
             // we get hoax from stdcheats
             // prank + deal
             hoax(address(i), SEND_VALUE);
@@ -179,10 +164,7 @@ contract FundMeTest is Test {
         uint256 endingFundMeBalance = address(fundMe).balance;
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
         assertEq(endingFundMeBalance, 0);
-        assertEq(
-            startingFundMeBalance + startingOwnerBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingFundMeBalance + startingOwnerBalance, endingOwnerBalance);
     }
 
     function testPrintStorageData() public view {

@@ -558,8 +558,7 @@ Contributions are welcome! Please:
 
 ## License
 
-MIT
-
+This project is licensed under the terms of the MIT license.
 ---
 
 **Built with Foundry** | **Powered by Chainlink** | **Educational Project**
